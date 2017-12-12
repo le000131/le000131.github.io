@@ -1,37 +1,824 @@
-@import 'custom';
-@import '../node_modules/bootstrap/scss/bootstrap';
+@import 'include';
+// Variables
+$primaryColor: #36a99e;
+$secondColor: #0f0f1b;
+$fontBase: 'Roboto',
+sans-serif;
+$headerColor: #edece8;
+$bodyColor: #303030;
+$headerHeight: 700px;
+$blockHeight: 540px;
+// Code starts here
+html {
+	font-family: $fontBase;
+}
 
 body {
-  padding: 2rem 0;
+	width: 100%;
 }
 
-// Responsive typography sizes using Bootstrap mixins for the media querries
-html {
-  font-size: 14px;
+.bar {
+	width: 50px;
+	height: 4px;
+	border: 0;
+	background-color: $primaryColor;
+	margin: 0 auto;
+	.ux &,
+	.video & {
+		margin: 0;
+	}
 }
 
-@include media-breakpoint-up(sm) {
-  html {
-    font-size: 16px;
-  }
+// Header
+header {
+	width: 100%;
+	height: $headerHeight;
+	background-image: url('../../img/bg.png');
+	background-size: cover;
+	padding-top: 220px;
+	p {
+		display: block;
+		font-weight: 300;
+		font-size: 20px;
+		color: $headerColor;
+		width: 80%;
+		height: 30px;
+		margin: 0 auto;
+		text-align: center;
+		margin-top: 40px;
+		opacity: 0.89;
+	}
+	span {
+		color: $primaryColor;
+	}
+	h1 {
+		font-size: 48px;
+		color: $headerColor;
+		text-align: center;
+		margin-bottom: 20px;
+		font-weight: 700;
+		opacity: 0.89;
+	}
+	// Menu
+	/* .menu1, .hamburger, .cross {
+		display: none;
+	} */
+	.hamburger {
+		visibility: hidden;
+		background: none;
+		position: absolute;
+		top: 20px;
+		right: 40px;
+		line-height: 45px;
+		padding: 5px 15px 0px 15px;
+		color: $headerColor;
+		border: 0;
+		font-size: 1.4em;
+		font-weight: bold;
+		cursor: pointer;
+		outline: none;
+		z-index: 3;
+		opacity: 0.89;
+	}
+	.cross {
+		visibility: hidden;
+		background: none;
+		position: absolute;
+		top: 20px;
+		right: 40px;
+		padding: 7px 15px 0px 15px;
+		color: $headerColor;
+		border: 0;
+		font-size: 3em;
+		line-height: 65px;
+		font-weight: bold;
+		cursor: pointer;
+		outline: none;
+		z-index: 3;
+		opacity: 0.89;
+	}
+	.menu1 {
+		visibility: hidden;
+		z-index: 4;
+		width: 300px;
+		background: rgba(15, 15, 27, 0.92);
+		position: absolute;
+		top: 65px;
+		right: 55px;
+		text-align: center;
+		font-size: 12px;
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			display: block;
+			padding: 15px 0 15px 0;
+			&:hover {
+				background: $headerColor;
+				a {
+					color: $bodyColor;
+				}
+			}
+			font-size: 16px;
+			transition: 0.3s ease-out;
+		}
+		a {
+			text-decoration: none;
+			margin: 0px;
+			color: $headerColor;
+			transition: 0.3s ease-out;
+			opacity: 0.89;
+			font-weight: 300;
+		}
+	}
+	.menu {
+		ul {
+			list-style-type: none;
+		}
+		li {
+			display: inline-block;
+			margin-right: 40px;
+			font-size: 16px;
+			&::after {
+				content: '';
+				display: block;
+				width: 0;
+				height: 2px;
+				background: $primaryColor;
+				transition: width .3s;
+			}
+			&:hover::after {
+				width: 100%;
+			}
+		}
+		a {
+			text-decoration: none;
+			color: $headerColor;
+		}
+		opacity: 0.89;
+		font-weight: 300;
+		position: absolute;
+		top: 40px;
+		right: 20px;
+	}
 }
 
-@include media-breakpoint-up(md) {
-  html {
-    font-size: 20px;
-  }
+// About me
+div[class="about"] span {
+	color: $primaryColor;
+	font-weight: 400;
 }
 
-@include media-breakpoint-up(lg) {
-  html {
-    font-size: 28px;
-  }
+.about {
+	padding-top: 40px;
+	width: 100%;
+	height: 640px;
+	background-color: $headerColor;
 }
 
-.header-subtle {
-  @extend .text-warning;
-  @extend .text-uppercase;
-  font-size: 1.2rem;
-  letter-spacing: .12em;
-  opacity: .6;
+h2 {
+	.about &,
+	.contact &,
+	.ux &,
+	.photo &,
+	.video & {
+		font-weight: 700;
+		color: $bodyColor;
+		font-size: 28px;
+		width: 200px;
+		margin: 0 auto;
+		text-align: center;
+		margin-bottom: 30px;
+		opacity: 0.89;
+	}
+}
+
+.info {
+	width: 700px;
+	height: 385px;
+	margin: 0 auto;
+	margin-top: 60px;
+	p {
+		width: 320px;
+		height: 300px;
+		font-weight: 300;
+		color: $bodyColor;
+		font-size: 22px;
+		line-height: 30px;
+		margin-right: 50px;
+		opacity: 0.89;
+	}
+	& img,
+	& p {
+		float: left;
+	}
+}
+
+// HORIZON UXD
+.ux {
+	width: 100%;
+	height: $blockHeight;
+	background-color: $secondColor;
+	img {
+		position: absolute;
+		top: 60px;
+		transition: transform 0.3s ease-out;
+		&:hover {
+			transform: translateY(-10px);
+		}
+	}
+}
+
+h2 {
+	.ux &,
+	.video & {
+		color: $headerColor;
+		margin: 0;
+		margin-bottom: 30px;
+		text-align: left;
+		opacity: 0.89;
+	}
+}
+
+p {
+	.ux &,
+	.video & {
+		width: 400px;
+		font: {
+			size: 24px;
+			weight: 300;
+		}
+		color: $headerColor;
+		opacity: 0.89;
+		line-height: 32px;
+	}
+}
+
+.wrap {
+	width: 100%;
+	height: $blockHeight;
+	margin: 0 auto;
+	& .wrap1,
+	& .wrap2 {
+		width: 50%;
+		height: $blockHeight;
+		float: left;
+	}
+	.wrap1 {
+		padding-top: 100px;
+		padding-left: 160px;
+	}
+	.wrap2 {
+		padding-top: 60px;
+		padding-left: 100px;
+		overflow: hidden;
+		.ux & {
+			position: relative;
+		}
+	}
+}
+
+// button styling
+a {
+	.ux &,
+	.video &,
+	.contact & {
+		text-decoration: none;
+		color: $headerColor;
+	}
+}
+
+.button {
+	width: 320px;
+	height: 70px;
+	background-color: $primaryColor;
+	opacity: 0.8;
+	text-align: center;
+	padding-top: 22px;
+	margin-top: 60px;
+	transition: 0.3s ease-out;
+	&:hover {
+		background-color: #299187;
+	}
+	h3 {
+		font: {
+			size: 22px;
+			weight: 300;
+		}
+		opacity: 0.8;
+		margin: 0;
+	}
+}
+
+// Photo
+.photo {
+	h2,
+	p {
+		color: $bodyColor;
+	}
+	background-color: $headerColor;
+	width: 100%;
+	height: 1000px;
+	padding-top: 40px;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 800px;
+	align-items: center;
+	margin: 40px auto;
+	padding: 10px;
+}
+
+.thumb {
+	width: 30%;
+	flex-grow: 1;
+	flex-shrink: 1;
+	margin: 10px;
+	transition: transform 0.2s ease-out;
+	&:hover {
+		cursor: pointer;
+		transform: scale(1.02);
+		box-shadow: 1px 1px 12px $bodyColor;
+	}
+}
+
+.overlay {
+	background: rgba(55, 55, 55, 0.71);
+	width: 100%;
+	height: 0%;
+	overflow: hidden;
+	position: fixed;
+	bottom: 0;
+	z-index: 1;
+	transition: height 0.25s ease-out;
+}
+
+.large {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 2;
+}
+
+.close {
+	color: $headerColor;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 3;
+	transition: transform 0.15s ease-out;
+	&:hover {
+		transform: scale(1.2);
+		cursor: pointer;
+	}
+}
+
+.pop {
+	height: 100%;
+}
+
+// Video
+.video {
+	width: 100%;
+	height: $blockHeight;
+	background-color: $secondColor;
+	& img:first-child {
+		margin-bottom: 10px;
+	}
+	img {
+		transition: transform 0.3s ease-out;
+		&:hover {
+			transform: scale(1.02);
+		}
+		max-width: 80%;
+	}
+}
+
+// Contact
+.contact {
+	width: 100%;
+	height: 400px;
+	background-color: $headerColor;
+	padding-top: 40px;
+	p {
+		width: 80%;
+		font-size: 20px;
+		text-align: center;
+		margin: 0 auto;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		color: $bodyColor;
+		opacity: 0.89;
+	}
+	i {
+		color: $bodyColor;
+		opacity: 0.89;
+	}
+	span {
+		color: $primaryColor;
+	}
+	.button {
+		margin: 0 auto;
+		margin-top: 40px;
+	}
+}
+
+.social {
+	a {
+		width: 80px;
+		display: inline-block;
+		margin-right: 10px;
+		&:nth-child(2) {
+			margin-right: 20px;
+		}
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	width: 280px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+// Footer
+footer {
+	color: $headerColor;
+	background-color: $secondColor;
+	width: 100%;
+	height: 50px;
+	font-weight: 300;
+	text-align: center;
+	padding-top: 15px;
+}
+
+// Breakpoints
+@media only screen and (max-width: 864px) {
+	header {
+		height: 400px;
+		padding-top: 100px;
+		p {
+			margin-top: 40px;
+			width: 80%;
+			font-size: 18px;
+		}
+		h1 {
+			font-size: 30px;
+			margin-bottom: 20px;
+		}
+		.menu {
+			display: none;
+		}
+		& .menu1, .hamburger, .cross {
+			visibility: visible;
+		}
+	}
+	.bar {
+		width: 40px;
+		height: 4px;
+	}
+	.about,
+	.ux,
+	.photo,
+	.video,
+	.contact {
+		h2 {
+			font-size: 24px;
+		}
+	}
+	.about,
+	.contact {
+		padding-top: 20px;
+	}
+	.about {
+		height: 500px;
+	}
+	.info {
+		width: 600px;
+		margin-top: 30px;
+		p {
+			width: 280px;
+		}
+		img {
+			width: 270px;
+			height: 315px;
+		}
+	}
+	.ux {
+		height: 500px;
+	}
+	.wrap {
+		height: 500px;
+		width: 100%;
+		& .wrap1,
+		& .wrap2 {
+			height: 500px;
+		}
+		.wrap1 {
+			padding-top: 60px;
+			padding-left: 40px;
+		}
+		.wrap2 {
+			padding-top: 60px;
+			padding-left: 0;
+			overflow: hidden;
+			.ux & {
+				position: relative;
+			}
+		}
+	}
+	.button {
+		width: 240px;
+		height: 60px;
+		padding-top: 18px;
+	}
+	p {
+		.ux &,
+		.video & {
+			width: 300px;
+			font-size: 20px;
+			line-height: 24px;
+		}
+	}
+	.photo {
+		height: 900px;
+		.container {
+			max-width: 700px;
+		}
+	}
+	.video {
+		height: 480px;
+		.wrap {
+			height: 480px;
+		}
+		& .wrap1,
+		& .wrap2 {
+			height: 480px;
+		}
+		.wrap1 {
+			padding-top: 40px;
+		}
+		.wrap2 {
+			padding-top: 50px;
+		}
+	}
+	.contact {
+		height: 360px;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	header {
+		height: 300px;
+		padding-top: 80px;
+		p {
+			margin-top: 20px;
+			width: 60%;
+			font-size: 16px;
+		}
+		h1 {
+			font-size: 26px;
+			margin-bottom: 20px;
+		}
+		.menu1 {
+			top: 55px;
+			right: 35px;
+		}
+		.hamburger {
+			top: 10px;
+			right: 20px;
+		}
+		.cross {
+			top: 10px;
+			right: 20px;
+		}
+	}
+	.bar {
+		width: 40px;
+		height: 3px;
+		.ux &,
+		.photo &,
+		.video & {
+			margin: 0 auto;
+		}
+	}
+	.about,
+	.ux,
+	.photo,
+	.video,
+	.contact {
+		h2 {
+			font-size: 24px;
+			text-align: center;
+			margin: 0 auto;
+			margin-bottom: 20px;
+		}
+	}
+	.about,
+	.contact {
+		padding-top: 20px;
+	}
+	.about {
+		height: 360px;
+	}
+	.info {
+		width: 80%;
+		height: 270px;
+		margin-top: 20px;
+		p {
+			width: 100%;
+			height: 250px;
+			margin: 0 auto;
+		}
+		img {
+			display: none;
+		}
+	}
+	.ux {
+		height: 360px;
+		p {
+			width: 90%;
+			margin: 0 auto;
+			margin-top: 30px;
+			margin-bottom: 50px;
+		}
+		.wrap {
+			height: 360px;
+		}
+	}
+	.wrap {
+		width: 90%;
+		& .wrap1,
+		& .wrap2 {
+			height: 500px;
+			float: none;
+		}
+		.wrap1 {
+			width: 90%;
+			margin: 0 auto;
+			padding-top: 40px;
+			padding-left: 0;
+		}
+		.wrap2 {
+			padding-top: 60px;
+			padding-left: 0;
+			overflow: hidden;
+			.ux & {
+				display: none;
+			}
+		}
+	}
+	.button {
+		width: 240px;
+		height: 60px;
+		padding-top: 18px;
+		margin: 0 auto;
+	}
+	p {
+		.video & {
+			width: 300px;
+			display: none;
+		}
+	}
+	.photo {
+		height: 4500px;
+		.container {
+			max-width: 500px;
+		}
+		.thumb {
+			width: 50%;
+		}
+	}
+	.video {
+		height: 620px;
+		.wrap {
+			height: 620px;
+		}
+		.wrap1 {
+			height: 120px;
+			padding-left: 0;
+			padding-top: 40px;
+			.button {
+				display: none;
+			}
+		}
+		.wrap2 {
+			width: 90%;
+			height: 500px;
+			margin: 0 auto;
+			padding-top: 0;
+			overflow: visible;
+		}
+		img {
+			margin: 0 auto;
+			display: block;
+		}
+	}
+	.contact {
+		height: 360px;
+	}
+}
+
+@media only screen and (max-width: 540px) {
+	
+	.about {
+		height: 420px;
+	}
+	.info {
+		width: 80%;
+		height: 270px;
+		margin-top: 20px;
+		p {
+			width: 100%;
+			height: 250px;
+			margin: 0 auto;
+		}
+		img {
+			display: none;
+		}
+	}
+	.ux {
+		height: 360px;
+		p {
+			width: 90%;
+			margin: 0 auto;
+			margin-top: 30px;
+			margin-bottom: 50px;
+		}
+		.wrap {
+			height: 360px;
+		}
+	}
+	.wrap {
+		width: 90%;
+		& .wrap1,
+		& .wrap2 {
+			height: 500px;
+			float: none;
+		}
+		.wrap1 {
+			width: 90%;
+			margin: 0 auto;
+			padding-top: 40px;
+			padding-left: 0;
+		}
+		.wrap2 {
+			padding-top: 60px;
+			padding-left: 0;
+			overflow: hidden;
+			.ux & {
+				display: none;
+			}
+		}
+	}
+	.button {
+		width: 240px;
+		height: 60px;
+		padding-top: 18px;
+		margin: 0 auto;
+	}
+	p {
+		.video & {
+			width: 300px;
+			display: none;
+		}
+	}
+	.photo {
+		height: 3600px;
+		.container {
+			max-width: 400px;
+		}
+		.thumb {
+			width: 50%;
+		}
+	}
+	.video {
+		height: 480px;
+		.wrap {
+			height: 480px;
+		}
+		.wrap1 {
+			height: 120px;
+			padding-left: 0;
+			padding-top: 40px;
+			.button {
+				display: none;
+			}
+		}
+		.wrap2 {
+			width: 90%;
+			height: 360px;
+			margin: 0 auto;
+			padding-top: 0;
+			overflow: visible;
+		}
+	}
+	.contact {
+		height: 360px;
+	}
 }
